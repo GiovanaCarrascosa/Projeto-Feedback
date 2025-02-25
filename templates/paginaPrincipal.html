@@ -5,12 +5,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for ('static', filename = 'css/style_P1.css') }}">
+
     <title>Página Principal</title>
+
 </head>
 
 <body>
 
-    
+    <main>
+
+        <form action="/post/mensagem" method="POST" class="form_comentario">
+
+            <label for="usuario">Insira seu nome de usuário:</label>
+            <input type="text" name="usuario" id="usuario">
+
+
+            <label for="comentario">Insira um Feedback:</label>
+            <input type="text" name="comentario" id="comentario">
+
+            <button>Enviar</button>
+
+        </form>
+
+    </main>
     
 </body>
 
