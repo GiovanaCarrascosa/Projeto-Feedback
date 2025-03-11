@@ -29,6 +29,25 @@
 
         </form>
 
+        {% for comentario in comentarios %}
+        <div class="container">
+
+            <div class="comentario">
+                <div class="titulo">Nome de Usuário:</div>
+                <div id="usuario">{{comentario.usuario}}</div>
+            </div>
+
+            <div class="comentario">
+                <div class="titulo">Data:</div>
+                <div id="data">{{comentario.data_comentario}}</div>
+            </div>
+
+            <div class="comentario">
+                <div class="titulo">Feedback:</div>
+                <div id="comentario">{{comentario.comentario}}</div>
+            </div>
+            {% endfor %}
+
     </main>
     
 </body>
