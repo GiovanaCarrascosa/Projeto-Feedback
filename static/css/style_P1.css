@@ -3,11 +3,11 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    
 }
 
 body {
     background-color: #ffc2fe;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -60,20 +60,21 @@ main {
 }
 
 .container {
-    margin: 50px;
+    margin: 20px;
     background: linear-gradient(135deg, #ff99bb, #ffccdd);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     width: 350px;
     text-align: center;
+ 
 }
 .comentario {
     background-color: #ffffff;
-    padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    
 }
 .titulo {
     font-weight: bold;
@@ -87,3 +88,31 @@ main {
     color: #333;
 
 }
+
+/* icon lixeira */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* icon like */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* icon deslike */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
