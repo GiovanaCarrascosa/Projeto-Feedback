@@ -8,7 +8,7 @@ app = Flask (__name__)
 
 # A partir daqui será as rotas.
 
-@app.route ("/")
+@app.route ("/pagina_mensagem")
 
 def pagina_principal():
 
@@ -30,7 +30,7 @@ def post_mensagem():
     Mensagem.cadastrar_mensagem(usuario, comentario)
 
     # reridiciona para o index
-    return redirect ("/")
+    return redirect ("/pagina_mensagem")
 
 
 @app.route ("/delete/comentario/<codigo>")
@@ -39,7 +39,7 @@ def delete_comentario(codigo):
 
     Mensagem.deletar_mensagem(codigo)
 
-    return redirect ("/")
+    return redirect ("/pagina_mensagem")
 
 @app.route("/put/mensagem/adicionar/curtida/<codigo>")
 
@@ -47,7 +47,7 @@ def adicionar_curtida (codigo):
 
     Mensagem.curtir_mensagem(codigo)
 
-    return redirect ("/")
+    return redirect ("/pagina_mensagem")
 
 @app.route("/put/mensagem/adicionar/deslike/<codigo>")
 
@@ -55,19 +55,20 @@ def adicionar_deslike (codigo):
 
     Mensagem.descurtir_mensagem(codigo)
 
-    return redirect ("/")
+    return redirect ("/pagina_mensagem")
 
-@app.route ("/pagina_login")
-
-def pagina_login():
-    
-    return render_template ("paginaLogin.html")
-
-@app.route ("/pagina_login")
+@app.route ("/")
 
 def pagina_login():
     
     return render_template ("paginaLogin.html")
+
+@app.route ("/pagina_cadastro")
+
+def pagina_cadastro():
+    
+    return render_template ("paginaCadastro.html")
+
 
 app.run(debug=True)
 

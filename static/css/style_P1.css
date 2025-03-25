@@ -96,6 +96,8 @@ main {
     background-color: #ff00d4;
     margin-top: 20px;
 
+    cursor: pointer;
+
 }
 
 .btn_curtir{
@@ -105,6 +107,8 @@ main {
     background-color: #ff00d4;
     margin-top: 20px;
 
+    cursor: pointer;
+
 }
 
 .btn_deslike{
@@ -113,5 +117,7 @@ main {
     height: 50px;
     background-color: #ff00d4;
     margin-top: 20px;
+
+    cursor: pointer;
 
 }
