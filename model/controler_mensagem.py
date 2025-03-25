@@ -16,7 +16,7 @@ class Mensagem:
 
         #criando o SQL q sera executado
         sql = """insert into tb_comentarios
-                    (nome, comentario, data_hora, curtidas)
+                    (nome, comentario, data_hora)
                     VALUES
                     (%s, %s, %s, %s)
                     
@@ -54,7 +54,6 @@ class Mensagem:
         
         return resultado
     
-
     def deletar_mensagem (codigo):
 
             #criar conexao
@@ -64,6 +63,48 @@ class Mensagem:
 
                                                                     # isso vai ser substituido por outra coisa
             sql = """DELETE FROM tb_comentarios WHERE cod_comentario = %s;"""
+
+            valores = (codigo,)
+
+            #executando o comando sql
+            cursor.execute(sql, valores)
+
+            conexao.commit()
+
+            #fecho a conexao com o banco
+            cursor.close()
+            conexao.close()
+
+    def curtir_mensagem (codigo):
+
+            #criar conexao
+            conexao = Conexao.criar_conexao()
+
+            cursor = conexao.cursor(dictionary = True)
+
+                                                                    # isso vai ser substituido por outra coisa
+            sql = """update tb_comentarios SET curtidas = curtidas + 1 WHERE cod_comentario = %s;"""
+
+            valores = (codigo,)
+
+            #executando o comando sql
+            cursor.execute(sql, valores)
+
+            conexao.commit()
+
+            #fecho a conexao com o banco
+            cursor.close()
+            conexao.close()
+
+    def descurtir_mensagem (codigo):
+
+            #criar conexao
+            conexao = Conexao.criar_conexao()
+
+            cursor = conexao.cursor(dictionary = True)
+
+                                                                    # isso vai ser substituido por outra coisa
+            sql = """update tb_comentarios SET curtidas = curtidas - 1 WHERE cod_comentario = %s;"""
 
             valores = (codigo,)
 

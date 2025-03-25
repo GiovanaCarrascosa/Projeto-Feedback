@@ -1,0 +1,76 @@
+/* Zera margens e paddings e define um background neutro */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f8; /* Cor de fundo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Garantindo que o conteúdo ocupe toda a altura da tela */
+}
+
+.login-container {
+    background-color: #fff; /* Fundo branco do formulário */
+    padding: 40px 30px; /* Espaçamento interno do formulário */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Tamanho máximo do formulário */
+    text-align: center;
+    background-color: #e8d8f0; /* Tema roxinho claro */
+}
+
+h2 {
+    color: #5f4b8b; /* Cor roxa para o título */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #5f4b8b; /* Foco com cor roxa */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6f42c1; /* Cor de fundo do botão roxa */
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5f36a3; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+.cadastro {
+    margin-top: 15px;
+}
+
+.cadastro a {
+    text-decoration: none;
+    color: #6f42c1; /* Cor do link roxa */
+    font-weight: bold;
+}
+
+.cadastro a:hover {
+    text-decoration: underline;
+}

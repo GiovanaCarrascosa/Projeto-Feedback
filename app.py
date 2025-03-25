@@ -45,7 +45,29 @@ def delete_comentario(codigo):
 
 def adicionar_curtida (codigo):
 
+    Mensagem.curtir_mensagem(codigo)
+
     return redirect ("/")
+
+@app.route("/put/mensagem/adicionar/deslike/<codigo>")
+
+def adicionar_deslike (codigo):
+
+    Mensagem.descurtir_mensagem(codigo)
+
+    return redirect ("/")
+
+@app.route ("/pagina_login")
+
+def pagina_login():
+    
+    return render_template ("paginaLogin.html")
+
+@app.route ("/pagina_login")
+
+def pagina_login():
+    
+    return render_template ("paginaLogin.html")
 
 app.run(debug=True)
 

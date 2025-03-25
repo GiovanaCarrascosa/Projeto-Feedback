@@ -50,26 +50,24 @@
                 <div id="data">{{comentario.data_hora}}</div>
             </div>
 
-            <!-- Botão delete -->
-            <a href="/delete/comentario/{{comentario.cod_comentario}}">
-                <span class="material-symbols-outlined">
-                    Deletar
-                </span>
-            </a>
-
-            <!-- Botão like -->
-            <a href="">
-                <span class="material-symbols-outlined">
-                    Like</span> <span>{{comentario.curtidas}}</span>
-            </a>
-
-            <!-- Botão dislike -->
-            <a href="">
-                <span class="material-symbols-outlined">
-                    Deslike
-                </span>
-            </a>
-
+            <div class="botoes">
+                <!-- Botão delete -->
+                
+                <a href="/delete/comentario/{{comentario.cod_comentario}}">
+                    <button class="btn_delete">Delete</button>
+                </a>
+            
+                <!-- Botão like -->
+                <a href="/put/mensagem/adicionar/curtida/{{comentario.cod_comentario}}">
+                    <button class="btn_curtir">Curtidas: {{comentario.curtidas}}</button>
+                </a>
+            
+                <!-- Botão dislike -->
+                <a href="/put/mensagem/adicionar/deslike/{{comentario.cod_comentario}}">
+                    <button class="btn_deslike">Deslikes: {{comentario.curtidas}}</button>
+                </a>
+            </div>
+            
         </div>
         {% endfor %}
 
