@@ -18,11 +18,11 @@
     <div class="login-container">
         <h2>Cadastro</h2>
 
-        <form action="/login" method="post">
+        <form action="/post/usuario" method="post">
             <input type="text" id="nome" name="nome" placeholder="Nome" required>
             <input type="text" id="login" name="login" placeholder="login" required>
             <input type="password" id="senha" name="senha" placeholder="Senha" required>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" onclick="alert('cadastro realizado com sucesso!')"><a href="/">Cadastrar</a></button>
 
             <p>Já possui? <a href="/">Clique aqui</a> para voltar para a tela de login.</p>
         </form>
@@ -31,3 +31,4 @@
     
 </body>
 </html>
+

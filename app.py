@@ -1,13 +1,16 @@
+# importamentos
 from flask import Flask, render_template, request, redirect
 import datetime
 import mysql.connector
 from data.conexao import Conexao
 from model.controler_mensagem import Mensagem
+from model.controler_usuario import Usuario
 
 app = Flask (__name__)
 
-# A partir daqui será as rotas.
 
+# A partir daqui será as rotas.
+# rota da pagina de comentarios
 @app.route ("/pagina_mensagem")
 
 def pagina_principal():
@@ -18,6 +21,9 @@ def pagina_principal():
     # enviar os comentarios para o template
     return render_template("paginaPrincipal.html", comentarios = comentarios)
 
+
+
+# cadastrar mensagem
 @app.route ("/post/mensagem", methods = ["POST"])
 
 def post_mensagem():
@@ -33,6 +39,8 @@ def post_mensagem():
     return redirect ("/pagina_mensagem")
 
 
+
+# deletar mensagem
 @app.route ("/delete/comentario/<codigo>")
 
 def delete_comentario(codigo):
@@ -41,6 +49,9 @@ def delete_comentario(codigo):
 
     return redirect ("/pagina_mensagem")
 
+
+
+# curtir comentario
 @app.route("/put/mensagem/adicionar/curtida/<codigo>")
 
 def adicionar_curtida (codigo):
@@ -49,6 +60,9 @@ def adicionar_curtida (codigo):
 
     return redirect ("/pagina_mensagem")
 
+
+
+# dar deslike no comentario
 @app.route("/put/mensagem/adicionar/deslike/<codigo>")
 
 def adicionar_deslike (codigo):
@@ -57,18 +71,39 @@ def adicionar_deslike (codigo):
 
     return redirect ("/pagina_mensagem")
 
+
+
+# rota pra tela inicial, tela de login
 @app.route ("/")
 
 def pagina_login():
     
     return render_template ("paginaLogin.html")
 
+
+
+# rota pra tela de cadastro
 @app.route ("/pagina_cadastro")
 
 def pagina_cadastro():
     
     return render_template ("paginaCadastro.html")
 
+
+@app.route ("/post/usuario", methods = ["POST"])
+
+def post_usuario():
+
+    # peguei as informacoes vindas do html
+    login = request.form.get("login")
+    senha = request.form.get("senha")
+    nome = request.form.get("nome")
+   
+    # cadastrando o usuario usando a Classe usuario
+    Usuario.cadastrar_usuario(login, senha, nome)
+
+    # reridiciona para o index
+    return redirect ("/")
 
 app.run(debug=True)
 
