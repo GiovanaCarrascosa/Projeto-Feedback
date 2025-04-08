@@ -20,6 +20,16 @@
 
     <main>
 
+        <header>
+            <h2 class="welcome">Seja bem vinde {{session["nome_usuario"]}}</h2>
+
+            <a href="/logoff">
+                <button class="sair">Logoff</button>
+            </a>
+        </header>
+
+        
+
         <form action="/post/mensagem" method="POST" class="form_comentario">
 
             <label for="usuario">Insira seu nome de usuário:</label>

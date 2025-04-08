@@ -1,5 +1,6 @@
 from hashlib import sha256
 from data.conexao import Conexao
+from flask import session
 
 class Usuario: 
 
@@ -12,7 +13,7 @@ class Usuario:
         conexao = Conexao.criar_conexao()
         
         #o cursor sera responsavel por manipular o banco de dados
-        cursor = conexao.cursor()
+        cursor = conexao.cursor(dictionary = True)
 
         #criando o SQL q sera executado
         sql = """insert tb_usuarios
@@ -40,10 +41,10 @@ class Usuario:
         conexao = Conexao.criar_conexao()
         
         #o cursor sera responsavel por manipular o banco de dados
-        cursor = conexao.cursor()
+        cursor = conexao.cursor(dictionary = True)
 
         #criando o SQL q sera executado
-        sql = """SELECT login, senha FROM tb_usuarios WHERE login= %s and binary senha= %s;
+        sql = """SELECT login, nome FROM tb_usuarios WHERE login= %s and binary senha= %s;
                     
                     """
         valores = (login, senha)
@@ -51,15 +52,32 @@ class Usuario:
         # executando o comando sql
         cursor.execute(sql, valores)
 
+                         # trazer uma linha, uma lista
         resultado = cursor.fetchone()
 
-        if resultado
-
-        #confirma a alteração
+          #confirma a alteração
         conexao.commit()
 
         #fecho a conexao com o banco
         cursor.close()
         conexao.close()
         
+
+        if resultado:
+            
+            session['usuario'] = resultado ['login']
+            session['nome_usuario'] = resultado ['nome']
+            
+            return True
+        
+        else:
+
+            return False
+        
+
+    def logoff():
+
+        session.clear()
+
+      
         

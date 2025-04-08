@@ -5,8 +5,11 @@ import mysql.connector
 from data.conexao import Conexao
 from model.controler_mensagem import Mensagem
 from model.controler_usuario import Usuario
+from flask import session
 
 app = Flask (__name__)
+
+app.secret_key = "ArianaGrande"
 
 
 # A partir daqui será as rotas.
@@ -15,11 +18,17 @@ app = Flask (__name__)
 
 def pagina_principal():
 
-    #recuperar as mensagens
-    comentarios = Mensagem.recuperar_mensagens()
+    if "usuario" in session:
 
-    # enviar os comentarios para o template
-    return render_template("paginaPrincipal.html", comentarios = comentarios)
+        #recuperar as mensagens
+        comentarios = Mensagem.recuperar_mensagens()
+
+        # enviar os comentarios para o template
+        return render_template("paginaPrincipal.html", comentarios = comentarios)
+    
+    else:
+
+        return redirect ("/")
 
 
 
@@ -74,11 +83,39 @@ def adicionar_deslike (codigo):
 
 
 # rota pra tela inicial, tela de login
+@app.route ("/logoff")
+
+def sair():
+    
+    Usuario.logoff()
+
+    return render_template ("paginaLogin.html")
+
+
+
 @app.route ("/")
 
 def pagina_login():
     
     return render_template ("paginaLogin.html")
+
+@app.route("/post/logar", methods = ["POST"])
+
+def post_logar():
+
+    usuario = request.form.get("login")
+    senha = senha = request.form.get("senha")
+
+    esta_logado = Usuario.logar(usuario, senha)
+
+    if esta_logado:
+
+        return redirect ("/pagina_mensagem")
+    
+    else:
+
+        return redirect ("/")
+
 
 
 
@@ -88,6 +125,9 @@ def pagina_login():
 def pagina_cadastro():
     
     return render_template ("paginaCadastro.html")
+
+
+
 
 
 @app.route ("/post/usuario", methods = ["POST"])
@@ -105,6 +145,8 @@ def post_usuario():
     # reridiciona para o index
     return redirect ("/")
 
-app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
 
 

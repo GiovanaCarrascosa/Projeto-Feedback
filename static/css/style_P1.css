@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #ffc2fe;
+    background-color: #e6c2ff;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -20,6 +20,26 @@ main {
     justify-content: center;
 }
 
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #6f42c1; /* Cor de fundo roxa */
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.welcome{
+
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    
+}
+
 .form_comentario {
     background: white;
     padding: 20px;
@@ -29,6 +49,7 @@ main {
     flex-direction: column;
     gap: 10px;
     width: 300px;
+    margin-top: 20px;
 }
 
 .form_comentario label {
@@ -61,7 +82,7 @@ main {
 
 .container {
     margin: 20px;
-    background: linear-gradient(135deg, #ff99bb, #ffccdd);
+    background: linear-gradient(135deg, #ee9cff, #eb99ff);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -69,58 +90,85 @@ main {
     text-align: center;
  
 }
-.comentario {
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-top: 15px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    
-}
-.titulo {
-    font-weight: bold;
-    color: #d1477f;
-    font-size: 1.1em;
-    margin-bottom: 5px;
+.container {
+    margin: 20px;
+    background: linear-gradient(135deg, #c9a0ff, #9b80f0); /* Tons de roxo mais suaves */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
 }
 
+/* Comentário individual */
+.comentario {
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* Título do comentário */
+.titulo {
+    font-weight: bold;
+    color: #6f42c1; /* Roxo mais intenso */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos textos (usuário, data, comentário) */
 #usuario, #data, #comentario {
     font-size: 1em;
     color: #333;
+}
+
+/* Botões */
+.btn_delete, .btn_curtir, .btn_deslike {
+    width: 90px;
+    height: 50px;
+    background-color: #7b53ff; /* Roxo suave */
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn_delete:hover, .btn_curtir:hover, .btn_deslike:hover {
+    background-color: #6f42c1; /* Roxo mais intenso no hover */
+    transform: translateY(-3px); /* Levanta o botão */
+}
+
+.btn_delete:focus, .btn_curtir:focus, .btn_deslike:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(111, 66, 193, 0.8); /* Efeito de foco */
+}
+
+.welcome{
+
+    margin-bottom: 20px;
+    
 
 }
 
-.btn_delete{
+.sair{
 
-    width: 80px;
-    height: 50px;
-    background-color: #ff00d4;
-    margin-top: 20px;
-
-    cursor: pointer;
-
+        background-color: rgb(196, 124, 255); /* Cor de fundo rosa */
+        color: black; /* Cor do texto */
+        border: 2px solid black; /* Remove a borda */
+        padding: 10px 20px; /* Espaçamento interno */
+        font-size: 16px; /* Tamanho da fonte */
+        border-radius: 5px; /* Bordas arredondadas */
+        cursor: pointer; /* Cursor de clique */
+        transition: background-color 0.3s ease; /* Animação para mudar a cor ao passar o mouse */
+    
 }
 
-.btn_curtir{
-
-    width: 80px;
-    height: 50px;
-    background-color: #ff00d4;
-    margin-top: 20px;
-
-    cursor: pointer;
-
-}
-
-.btn_deslike{
-
-    width: 80px;
-    height: 50px;
-    background-color: #ff00d4;
-    margin-top: 20px;
-
-    cursor: pointer;
-
-
+.sair:hover {
+    background-color: #ff66b2; /* Cor de fundo rosa mais escuro quando passa o mouse */
 }
 
 
