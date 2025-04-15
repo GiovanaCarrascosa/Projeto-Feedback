@@ -116,6 +116,28 @@ class Mensagem:
             #fecho a conexao com o banco
             cursor.close()
             conexao.close()
-            
-     
 
+    def ultima_mensagem (nome, comentario):
+          
+            #criar conexao
+            conexao = Conexao.criar_conexao()
+
+            cursor = conexao.cursor(dictionary = True)
+                                                    
+            sql = """SELECT nome, comentario FROM tb_usuarios WHERE nome = %s and comentario = %s;"""
+
+            valores = (nome, comentario,)
+
+            #executando o comando sql
+            cursor.execute(sql, valores)
+
+            ultimo_comentario = cursor.getone()
+
+            conexao.commit()
+
+            #fecho a conexao com o banco
+            cursor.close()
+            conexao.close()
+
+                
+        

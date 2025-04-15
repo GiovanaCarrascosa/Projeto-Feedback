@@ -1,5 +1,5 @@
 # importamentos
-from flask import Flask, render_template, request, redirect
+from flask import Flask, jsonify, render_template, request, redirect
 import datetime
 import mysql.connector
 from data.conexao import Conexao
@@ -145,6 +145,19 @@ def post_usuario():
     # reridiciona para o index
     return redirect ("/")
 
+@app.route("/api/get/mensagens")
+
+def api_get_mensagens():
+
+    mensagens = Mensagem.recuperar_mensagens()
+    return jsonify(mensagens)
+
+@app.route("/api/get/ultimamensagem/<usuario>")
+
+def api_get_ultima_mensagem(usuario):
+
+    mensagem = Mensagem.ultima_mensagem(usuario)
+    return jsonify (mensagem)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
